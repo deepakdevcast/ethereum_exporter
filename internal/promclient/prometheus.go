@@ -10,7 +10,12 @@ var EthBlockHeightGauge = prometheus.NewGaugeVec(prometheus.GaugeOpts{
 	Help: "Latest ethereum block number.",
 }, []string{"name"})
 
+var EthAccountsGauge = prometheus.NewGaugeVec(prometheus.GaugeOpts{
+	Name: "eth_accounts",
+	Help: "Gives accounts own by client as label.",
+}, []string{"name", "account"})
+
 func init() {
-	prometheus.MustRegister(EthBlockHeightGauge)
+	prometheus.MustRegister(EthBlockHeightGauge, EthAccountsGauge)
 	prometheus.Unregister(collectors.NewGoCollector())
 }

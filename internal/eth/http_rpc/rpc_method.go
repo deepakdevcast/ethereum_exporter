@@ -24,7 +24,11 @@ type RpcRequestBody struct {
 type RpcResponse struct {
 	Id      uint   `json:"id"`
 	Jsonrpc string `json:"jsonrpc"`
-	Result  any    `json:"result"`
+	Result  any    `json:"result,omitempty"`
+	Error   *struct {
+		Code    int    `json:"code,omitempty"`
+		Message string `json:"message,omitempty"`
+	} `json:"error,omitempty"`
 }
 
 type MethodRpcResult struct {
@@ -63,6 +67,9 @@ func (rm *RpcMethod) Get() MethodRpcResult {
 	var respResult RpcResponse
 	if err := json.Unmarshal(body, &respResult); err != nil {
 		return MethodRpcResult{nil, errors.Join(err)}
+	}
+	if respResult.Error != nil {
+		return MethodRpcResult{nil, errors.New(respResult.Error.Message)}
 	}
 	return MethodRpcResult{respResult.Result, nil}
 }

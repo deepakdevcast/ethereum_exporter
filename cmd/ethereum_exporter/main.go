@@ -1,7 +1,7 @@
 package main
 
 import (
-	"ethereum_exporter/internal/config"
+	"ethereum_exporter/config"
 	ethHttpRpc "ethereum_exporter/internal/eth/http_rpc"
 	"ethereum_exporter/internal/rpc"
 	"log"
@@ -25,6 +25,7 @@ func main() {
 				log.Panicf("Failed to created Eth Rpc Client %s\n", err)
 			}
 			rpc.EthBlockHeightMetric(ethHttpRpcClient, labels)
+			rpc.EthAccountsMetric(ethHttpRpcClient, labels)
 		}
 		promhttp.Handler().ServeHTTP(w, r)
 	})
