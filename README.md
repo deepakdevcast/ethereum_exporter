@@ -78,3 +78,6 @@ _Below is an example of how you can instruct your audience on installing and set
 ## Contact
 
 Deepak Kumar - [@deepakkdev](https://www.linkedin.com/in/deepakkdev/)
+
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: https://linkedin.com/in/deepakkdev
