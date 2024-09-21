@@ -26,6 +26,9 @@ func main() {
 			}
 			rpc.EthBlockHeightMetric(ethHttpRpcClient, labels)
 			rpc.EthAccountsMetric(ethHttpRpcClient, labels)
+			rpc.EthChainIdMetric(ethHttpRpcClient, labels)
+			rpc.EthGasPriceMetric(ethHttpRpcClient, labels)
+			rpc.EthSyncingMetric(ethHttpRpcClient, labels)
 		}
 		promhttp.Handler().ServeHTTP(w, r)
 	})

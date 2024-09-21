@@ -15,7 +15,28 @@ var EthAccountsGauge = prometheus.NewGaugeVec(prometheus.GaugeOpts{
 	Help: "Gives accounts own by client as label.",
 }, []string{"name", "account"})
 
+var EthChainIdGauge = prometheus.NewGaugeVec(prometheus.GaugeOpts{
+	Name: "eth_chainId",
+	Help: "Gives current network chainId",
+}, []string{"name", "chainId"})
+
+var EthGasPriceGauge = prometheus.NewGaugeVec(prometheus.GaugeOpts{
+	Name: "eth_gasPrice",
+	Help: "Gives current price per gas in wei",
+}, []string{"name"})
+
+var EthSyncingGauge = prometheus.NewGaugeVec(prometheus.GaugeOpts{
+	Name: "eth_syncing",
+	Help: "Gives Syncing Status",
+}, []string{"name"})
+
 func init() {
-	prometheus.MustRegister(EthBlockHeightGauge, EthAccountsGauge)
+	prometheus.MustRegister(
+		EthBlockHeightGauge,
+		EthAccountsGauge,
+		EthChainIdGauge,
+		EthGasPriceGauge,
+		EthSyncingGauge,
+	)
 	prometheus.Unregister(collectors.NewGoCollector())
 }

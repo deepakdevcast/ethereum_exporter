@@ -38,6 +38,13 @@
 
 This project is build to generate prometheus metrics for <b>multiple</b> ethereum rpc clients.
 
+Metrics:
+
+1. eth_syncing
+2. eth_block_height
+3. eth_chainId
+4. eth_gasPrice
+
 Here's why:
 * This will helps you to monitor ethereum and get useful metrics
 * You can scape these metrics using prometheus

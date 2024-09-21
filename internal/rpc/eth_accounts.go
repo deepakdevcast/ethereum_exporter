@@ -11,7 +11,7 @@ import (
 var ethAccountsBody = &ethHttpRpc.RpcRequestBody{
 	Jsonrpc: "2.0",
 	Method:  "eth_accounts",
-	Id:      83,
+	Id:      0,
 	Params:  []interface{}{},
 }
 
