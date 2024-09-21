@@ -22,7 +22,7 @@ func main() {
 			labels := map[string]string{"name": clientInfo.Client}
 			ethHttpRpcClient, err := ethHttpRpc.NewEthHttpRpcClient(ethHttpRpc.SetHttpRequest(url))
 			if err != nil {
-				log.Panicf("Failed to created Eth Rpc Client %w\n", err)
+				log.Panicf("Failed to created Eth Rpc Client %s\n", err)
 			}
 			rpc.EthBlockHeightMetric(ethHttpRpcClient, labels)
 		}
